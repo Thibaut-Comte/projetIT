@@ -48,7 +48,7 @@ public class Bien {
 		this.specificites = specificites;
 	}
 
-	public boolean isStatut() {
+	public boolean getStatut() {
 		return statut;
 	}
 
