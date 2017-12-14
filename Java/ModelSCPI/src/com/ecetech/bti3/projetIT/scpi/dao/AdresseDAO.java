@@ -69,7 +69,7 @@ public class AdresseDAO {
 	 * @param id
 	 * @return : 1 ou 0  (le nbr d'adresse supprimées) sinon le (-) code d'erreur  
 	 */
-	public static int deleteEleveByNum(String id) {
+	public static int deleteBienById(String id) {
 		int result = -1;
 		ConnectionDB.DBConnexion();
 
