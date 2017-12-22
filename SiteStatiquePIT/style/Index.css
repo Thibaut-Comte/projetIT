@@ -1,0 +1,26 @@
+.container {
+    border: 2px solid #910091;
+}
+
+.row {
+    border: 2px solid #80201a;
+}
+
+div[class*="col"] {
+    border: 2px solid #000f65;
+}
+
+.titre {
+    text-decoration: underline;
+}
+.center{
+    text-align: center;
+}
+
+.list {
+    list-style-type: none;
+}
+
+img {
+    padding-bottom: 1%;
+}

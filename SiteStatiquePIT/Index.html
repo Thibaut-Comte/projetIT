@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="fr,en">
+<head>
+    <link rel="stylesheet" href="./style/Index.css" media="screen,projection" type="text/css">
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn+SC:400,600,700,900" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projet IT</title>
+</head>
+<body class="container-fluid">
+<div class="container">
+    <div class="row">
+        <div class="col-xs-3">
+            <ul class="list gauche" id="sommaire">
+                <li>
+                    <p>Introduction</p>
+                    <ul class="list">
+                        <li>-<a href="#presentation">présentation</a></li>
+                        <li>-<a href="#contexte">contexte</a></li>
+                        <li>-<a href="#cibles">cibles</a></li>
+                        <li>-<a href="#objectifs">objectifs</a></li>
+                        <li>-<a href="#existant">existant</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Aspects</p>
+                    <ul class="list">
+                        <li>-<a href="#aSite">Arborescence de Site</a></li>
+                        <li>-<a href="#specF">Spécifications fonctionnels</a></li>
+                        <li>-<a href="#specT">Spécifications techniques</a></li>
+                        <li>-<a href="#CTO">Contexte techniques organisationnel</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Analyse du Projet</p>
+                    <ul class="list">
+                        <li>-<a href="#UC">Use Case</a></li>
+                        <li>-<a href="#MLD">MLD</a></li>
+                        <li>-<a href="#MCD">MCD</a></li>
+                        <li>-<a href="#TU">Test Unitaire</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-9">
+            <div class="row">
+                <div class="col-xs-offset-3 col-xs-6 center">
+                    <h1 class="titre">Bourse d'échange de parts de SCPI</h1>
+                </div>
+                <div class="col-xs-offset-1 col-xs-10 center">
+                    <p>Dans le cadre de notre projet IT, BONGO Jean-Phillipe, COMTE Thibaut et moi-même, FLAMANT Thomas
+                        allons travailler sur la
+                        création d'une bourse d'échanges de parts de SCPI</p>
+                    <p>Ce projet est encadré par Dr. Taha RIDENE & Mr. Hans Peinturier</p>
+                </div>
+                <div class="col-xs-offset-1 col-xs-10 center">
+                    <h1 class="titre" id="presentation">Qu'est ce qu'une SCPI</h1>
+                </div>
+                <div class="col-xs-offset-1 col-xs-10 center">
+                    <p>Une <acronym title="Société de Gestion de patrimoine immobilier">SCPI</acronym> est un organisme
+                        permettant d'investir
+                        dans un patrimoine immobilier.</p>
+                    <p>Les SCPI ont un capital de 760k€, celui-ci pouvant être variable ou fixe. Chaque part doit être
+                        d'une valeur de 150€</p>
+                    <p>Il existe 3 types de SCPI : </p>
+                    <ul class="list">
+                        <li>- rendement</li>
+                        <li>- plus-value</li>
+                        <li>- fiscales</li>
+                    </ul>
+                </div>
+                <div class="col-xs-offset-3 col-xs-6 center">
+                    <h2 class="titre" id="contexte">Contexte</h2>
+                </div>
+                <div class="col-xs-offset-1 col-xs-10 center">
+                    <p>Ce projet se déroule dans le cadre du module IT Project, il aura pour but de créer une bourse
+                        d'échanges de parts
+                        de SCPI, ce qui permettra de rendre plus visible ces dernières.</p>
+                    <p>De plus, nous essayerons de mettre en relations les différentes SCPI, afin d'augmenter encore
+                        plus la visibilité.</p>
+                </div>
+                <div class="col-xs-offset-3 col-xs-6 center">
+                    <h2 class="titre" id="cibles">Cibles de notre projet</h2>
+                </div>
+                <div class="col-xs-offset-1 col-xs-10 center">
+                    <p>Les principales cibles de notre projet sont les clients de SCPI souhaitant vendre ou aquerir des
+                        parts.</p>
+                </div>
+                <div class="col-xs-offset-3 col-xs-6 center">
+                    <h2 class="titre" id="objectifs">Objectif de l'application</h2>
+                </div>
+                <div class="col-xs-offset-1 col-xs-10 center">
+                    <p>Cette application aura pour but de mettre en relation direct les clients de SPCI.</p>
+                    <p>Cela permattra aux personnes souhaitant se debarasser de parts de les mettre en vente via la
+                        plateforme, et aux personnes souhaitant acheter
+                        des parts de la faire via la plateforme. La SCPI, une fois l'accord entre l'acheteur et le
+                        vendeur fait, valider et effectué la transaction.</p>
+                    <p>De plus, nous mettrons en place un système d'enchère afin de mettre en concurrence les acheteurs
+                        et de motiver les
+                        commerciaux, qui toucherons une partie de la plus-value engendré. La SCPI touchera le reste de
+                        cette plus-value.</p>
+                </div>
+                <div class="col-xs-offset-3 col-xs-6 center">
+                    <h2 class="titre" id="existant">Existant</h2>
+                </div>
+                <div class="col-xs-offset-1 col-xs-10 center">
+                    <p>A l'heure actuelle, il n'existe pas de système de mise en relation direct acheteur-vendeur.</p>
+                    <img src="./images/Existant1.png">
+                    <p>Notre système permettra donc de fluidifier les échanges ce parts et de permettre au SCPI de
+                        liberer une partie de leurs reserves.</p>
+                    <img src="./images/Existant2.png">
+                </div>
+                <div class="col-xs-offset-1 col-xs-10 center">
+                    <h1 class="titre">Aspects fonctionnels et techniques</h1>
+                </div>
+                <div class="col-xs-offset-3 col-xs-6 center">
+                    <h2 class="titre" id="aSite">Arborescence du Site</h2>
+                </div>
+                <div class="col-xs-offset-1 col-xs-10 center">
+                    <p>Les site devra être ergonomique et accessible par toutes les plateformes. Il contiendra :</p>
+                    <ul class="list">
+                        <li>- page d'accueil : consulter les biens en ventes</li>
+                        <li>- page de login : mise en vente de ses biens</li>
+                        <li>- page admin : gérer les biens</li>
+                    </ul>
+                </div>
+                <div class="col-xs-offset-3 col-xs-6 center">
+                    <h2 class="titre" id="specF">Spécifications fonctionnels</h2>
+                </div>
+                <div class="col-xs-offset-1 col-xs-10 center">
+                    <p>Il sera possible de :</p>
+                    <ul class="list">
+                        <li>- voir la liste de biens</li>
+                        <li>- voir l'état de vente</li>
+                        <li>- voir listing des biens disponible à l'achat</li>
+                        <li>- mettre en vente ses biens</li>
+                        <li>- voir le liste de ses biens</li>
+                        <li>- admin : acceder à tous les biens</li>
+                        <li>- admin : gérer les proprietaires</li>
+                    </ul>
+                </div>
+                <div class="col-xs-offset-3 col-xs-6 center">
+                    <h2 class="titre" id="specT">Spécifications techniques</h2>
+                </div>
+                <div class="col-xs-offset-1 col-xs-10 center">
+                    <p>Notre système sera un ajout au système existant : il faudra donc nous adapter</p>
+                    <p>Le language sera le JavaEE, suivant le modèle MVC2</p>
+                    <p>Pour gérer les biens nous utiliserons la base de données avec comme indicateur d'état de vente un booléen.</p>
+                    <p>Chaque client pourra se connecter a notre plateforme en utilisant un login et un mot de passe</p>
+                    <p>Une fois connecter il pourra a cceder à la liste de biens en vente pour en aquerir un ou vendre l'un de ces biens.</p>
+                    <p>La SCPI pourra aussi se conncter afin de gérer les titre de popriéte des biens ou encore pour voir la listes des biens en ventes.</p>
+                </div>
+                <div class="col-xs-offset-3 col-xs-6 center">
+                    <h2 class="titre" id="CTO">Contexte technique organisationnel</h2>
+                </div>
+                <div class="col-xs-offset-1 col-xs-10 center">
+                    <p>Nous développerons ce projet suivant l'architectue 3 tiers, qui obéira au design partern MVC2. Notre base de données sera dérer en MySQL.</p>
+                    <img src="./images/Arch3tiers.png" class="img-responsive">
+                    <img src="./images/MVC2.png" class="img-responsive">
+                    <p>Nous travaillerons sur la conception et la mise en place du modèle dans un premier temps</p>
+                    <p>Dans un deuxième temps, nous developperons le ocntenu, la vue et l'interface.</p>
+                </div>
+                <div class="col-xs-offset-1 col-xs-10 center">
+                    <h1 class="titre">Analyse du Projet</h1>
+                </div>
+                <div class="col-xs-offset-3 col-xs-6 center">
+                    <h2 class="titre" id="UC">Use Case</h2>
+                </div>
+                <div class="col-xs-offset-1 col-xs-10 center">
+                    <img src="./images/UseCase.png"  class="img-responsive">
+                </div>
+                <div class="col-xs-offset-3 col-xs-6 center">
+                    <h2 class="titre" id="MLD">MLD</h2>
+                </div>
+                <div class="col-xs-offset-1 col-xs-10 center">
+                    <img src="./images/MLD.png"  class="img-responsive">
+                </div>
+                <div class="col-xs-offset-3 col-xs-6 center">
+                    <h2 class="titre" id="MCD">MCD</h2>
+                </div>
+                <div class="col-xs-offset-1 col-xs-10 center">
+                    <img src="./images/MCD.png"  class="img-responsive">
+                </div>
+                <div class="col-xs-offset-3 col-xs-6 center">
+                    <h2 class="titre" id="TU">Test unitaires</h2>
+                </div>
+                <div class="col-xs-offset-1 col-xs-10 center">
+                    <img src="./images/TestUnit.png"  class="img-responsive">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<header>
+
+</header>
+<main>
+
+</main>
+<aside>
+
+</aside>
+<footer>
+
+
+</footer>
+</body>
+</html>
