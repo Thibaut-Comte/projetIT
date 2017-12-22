@@ -12,7 +12,7 @@ import java.sql.Statement;
 
 public class ConnectionDB {
   
-  private static final String dbPath   = "jdbc:mysql://localhost:3306/scpi"; //Num de port mysql 3306, 8889 sous mac
+  private static final String dbPath   = "jdbc:mysql://localhost:3306/projetit"; //Num de port mysql 3306, 8889 sous mac
   private static final String user     = "root";
   private static final String password = "root";
   private static Connection   con      = null;

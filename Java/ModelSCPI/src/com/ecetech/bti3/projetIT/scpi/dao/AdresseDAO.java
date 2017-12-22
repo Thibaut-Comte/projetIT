@@ -17,7 +17,7 @@ public class AdresseDAO {
 	public static Adresse getAdresseById (String id) throws SQLException {
 		Adresse adrTmp = new Adresse();
 		//Requete
-		String req = "SELECT * FROM adresse WHERE identifiant = '"+id;
+		String req = "SELECT * FROM adresse WHERE identifiant = '"+id+"'";
 		ConnectionDB.DBConnexion();
 		//Récupération d'un resultat après execution
 		ConnectionDB.setRes(ConnectionDB.getStm().executeQuery(req));
