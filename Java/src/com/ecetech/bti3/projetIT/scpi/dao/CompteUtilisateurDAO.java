@@ -71,7 +71,7 @@ public class CompteUtilisateurDAO {
 		String req = "DELETE FROM compteUtilisateur WHERE login = '"+login+"' ";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
-			System.out.println("Requete executée");	
+			System.out.println("Compte supprimé");	
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();
@@ -106,7 +106,7 @@ public class CompteUtilisateurDAO {
 				+ "etat = '"+etat+"', type = '"+type+"'";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
-			System.out.println("Requete executee");	
+			System.out.println("Compte mis à jour");	
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();
@@ -133,6 +133,7 @@ public class CompteUtilisateurDAO {
 				+ "VALUES ('"+login+"','"+mdp+"',"+creation+",'"+etat+"','"+type+"'";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
+			System.out.println("Compte créé");
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();

@@ -5,11 +5,11 @@ public class Bien {
 	private String numero;
 	private String type;
 	private String specificites;
-	private boolean statut;
+	private int statut;
 	private float taille;
 	private String identifiantAdresse;
 	
-	public Bien(String numero, String type, String specificites, boolean statut, float taille,
+	public Bien(String numero, String type, String specificites, int statut, float taille,
 			String identifiantAdresse) {
 		super();
 		this.numero = numero;
@@ -21,7 +21,7 @@ public class Bien {
 	}
 	
 	public Bien () {
-		this("", "", "", false, 0, "");
+		this("", "", "", 0, 0, "");
 	}
 
 	public String getNumero() {
@@ -48,11 +48,11 @@ public class Bien {
 		this.specificites = specificites;
 	}
 
-	public boolean getStatut() {
+	public int getStatut() {
 		return statut;
 	}
 
-	public void setStatut(boolean statut) {
+	public void setStatut(int statut) {
 		this.statut = statut;
 	}
 

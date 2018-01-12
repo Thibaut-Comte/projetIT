@@ -78,7 +78,7 @@ public class AdresseDAO {
 		String req = "DELETE FROM adresse WHERE identifiant = '"+id+"' ";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
-			System.out.println("Requete executée");	
+			System.out.println("Adresse supprimée");	
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();
@@ -114,7 +114,7 @@ public class AdresseDAO {
 				+ "WHERE num ='"+id+"' ";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
-			System.out.println("Requete executee");	
+			System.out.println("Adresse mise à jour");	
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();
@@ -143,6 +143,7 @@ public class AdresseDAO {
 				+ "VALUES ('"+identifiant+"','"+rue+"',"+cp+",'"+ville+"','"+pays+"','"+ascenseur+"','"+etage+"') ";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
+			System.out.println("Adresse créée");
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();

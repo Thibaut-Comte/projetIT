@@ -17,7 +17,7 @@ public class BienDAO {
 	public static Bien getBienByNum (String num) throws SQLException {
 		Bien bienTmp = new Bien();
 		//Requete
-		String req = "SELECT * FROM adresse WHERE identifiant = '"+num;
+		String req = "SELECT * FROM adresse WHERE identifiant = '"+num+"'";
 		ConnectionDB.DBConnexion();
 		//Récupération d'un resultat après execution
 		ConnectionDB.setRes(ConnectionDB.getStm().executeQuery(req));
@@ -27,7 +27,7 @@ public class BienDAO {
 			bienTmp.setNumero(ConnectionDB.getRes().getString(1));
 			bienTmp.setType(ConnectionDB.getRes().getString(2));
 			bienTmp.setSpecificites(ConnectionDB.getRes().getString(3));
-			bienTmp.setStatut(ConnectionDB.getRes().getBoolean(4));
+			bienTmp.setStatut(ConnectionDB.getRes().getInt(4));
 			bienTmp.setTaille(ConnectionDB.getRes().getFloat(5));
 			bienTmp.setIdentifiantAdresse(ConnectionDB.getRes().getString(6));
 
@@ -43,9 +43,10 @@ public class BienDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public static ArrayList<Bien> getBien() throws SQLException {
+	public static ArrayList<Bien> getAllBiens() throws SQLException {
 		Bien bienTmp = new Bien();
 		String req = "SELECT * FROM bien";
+		ConnectionDB.DBConnexion();
 		ConnectionDB.setRes(ConnectionDB.getStm().executeQuery(req));
 
 		ArrayList<Bien> biens = new ArrayList<Bien>();
@@ -53,7 +54,7 @@ public class BienDAO {
 			bienTmp.setNumero(ConnectionDB.getRes().getString(1));
 			bienTmp.setType(ConnectionDB.getRes().getString(2));
 			bienTmp.setSpecificites(ConnectionDB.getRes().getString(3));
-			bienTmp.setStatut(ConnectionDB.getRes().getBoolean(4));
+			bienTmp.setStatut(ConnectionDB.getRes().getInt(4));
 			bienTmp.setTaille(ConnectionDB.getRes().getFloat(5));
 			bienTmp.setIdentifiantAdresse(ConnectionDB.getRes().getString(6));
 			biens.add(bienTmp);
@@ -61,6 +62,32 @@ public class BienDAO {
 		//Fermeture de la connection
 		ConnectionDB.DBClose();
 		return biens;
+	}
+	
+	/**
+	 * Récupération de la liste des biens en vente
+	 * @return
+	 * @throws SQLException
+	 */
+	public static ArrayList<Bien> getAllBiensEnVente() throws SQLException {
+		Bien bienTmp = new Bien();
+		String req = "SELECT * FROM bien WHERE statut = 1";
+		ConnectionDB.DBConnexion();
+		ConnectionDB.setRes(ConnectionDB.getStm().executeQuery(req));
+
+		ArrayList<Bien> biensVentes = new ArrayList<Bien>();
+		while (ConnectionDB.getRes().next()) {
+			bienTmp.setNumero(ConnectionDB.getRes().getString(1));
+			bienTmp.setType(ConnectionDB.getRes().getString(2));
+			bienTmp.setSpecificites(ConnectionDB.getRes().getString(3));
+			bienTmp.setStatut(ConnectionDB.getRes().getInt(4));
+			bienTmp.setTaille(ConnectionDB.getRes().getFloat(5));
+			bienTmp.setIdentifiantAdresse(ConnectionDB.getRes().getString(6));
+			biensVentes.add(bienTmp);
+		}
+		//Fermeture de la connection
+		ConnectionDB.DBClose();
+		return biensVentes;
 	}
 
 	/**
@@ -75,7 +102,7 @@ public class BienDAO {
 		String req = "DELETE FROM bien WHERE num = '"+num+"' ";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
-			System.out.println("Requete executée");	
+			System.out.println("Bien supprimé");	
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();
@@ -102,7 +129,7 @@ public class BienDAO {
 		String numero = bien.getNumero();
 		String type = bien.getType();
 		String specificites = bien.getSpecificites();
-		boolean statut = bien.getStatut();
+		int statut = bien.getStatut();
 		float taille = bien.getTaille();
 		String identifiantAdresse = bien.getIdentifiantAdresse();
 
@@ -112,7 +139,57 @@ public class BienDAO {
 				+ "WHERE num ='"+num+"' ";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
-			System.out.println("Requete executee");	
+			System.out.println("Bien update");	
+		} catch (SQLException ex)
+		{
+			result = - ex.getErrorCode();
+		}
+		ConnectionDB.DBClose();
+		return result;
+	}
+	
+	/**
+	 * Mise à jour du statut d'un bien (vendu)
+	 * @param bien
+	 * @param num
+	 * @return
+	 */
+	public static int bienVendu(Bien bien, String num) 
+	{
+		int result = -1;
+		ConnectionDB.DBConnexion();
+
+		int statut = 0;
+
+		String req = "UPDATE bien SET statut = '"+statut+"'";
+		try {
+			result = ConnectionDB.getStm().executeUpdate(req);
+			System.out.println("Statut changé");	
+		} catch (SQLException ex)
+		{
+			result = - ex.getErrorCode();
+		}
+		ConnectionDB.DBClose();
+		return result;
+	}
+	
+	/**
+	 * Mise à jour du statut d'un bien (mise en vente)
+	 * @param bien
+	 * @param num
+	 * @return
+	 */
+	public static int bienAVendre(Bien bien, String num) 
+	{
+		int result = -1;
+		ConnectionDB.DBConnexion();
+
+		int statut = 1;
+
+		String req = "UPDATE bien SET statut = '"+statut+"'";
+		try {
+			result = ConnectionDB.getStm().executeUpdate(req);
+			System.out.println("Statut changé");	
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();
@@ -131,7 +208,7 @@ public class BienDAO {
 	 * @param identifiantAdresse
 	 * @return
 	 */
-	public static int addBien(String numero, String type, String specificite, Boolean statut, Float taille, String identifiantAdresse) 
+	public static int addBien(String numero, String type, String specificite, int statut, Float taille, String identifiantAdresse) 
 	{
 		int result = -1;
 		ConnectionDB.DBConnexion();
@@ -140,6 +217,7 @@ public class BienDAO {
 				+ "VALUES ('"+numero+"','"+type+"',"+specificite+",'"+statut+"','"+taille+"','"+identifiantAdresse+"') ";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
+			System.out.println("Bien créé");
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();
