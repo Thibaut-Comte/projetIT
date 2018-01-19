@@ -1,6 +1,5 @@
 package com.ecetech.bti3.projetIT.scpi.dao;
 
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -18,7 +17,7 @@ public class CompteUtilisateurDAO {
 	public static CompteUtilisateur getCompteByLogin (String login) throws SQLException {
 		CompteUtilisateur cpTmp= new CompteUtilisateur();
 		//Requete
-		String req = "SELECT * FROM compteUtilisateur WHERE login= '"+login;
+		String req = "SELECT * FROM compte_utilisateur WHERE login = '"+login+"';";
 		ConnectionDB.DBConnexion();
 		//Récupération d'un resultat après execution
 		ConnectionDB.setRes(ConnectionDB.getStm().executeQuery(req));
@@ -27,7 +26,7 @@ public class CompteUtilisateurDAO {
 		while (ConnectionDB.getRes().next()) {
 			cpTmp.setLogin(ConnectionDB.getRes().getString(1));
 			cpTmp.setMdp(ConnectionDB.getRes().getString(2));
-			cpTmp.setCreation(ConnectionDB.getRes().getDate(3));
+			cpTmp.setCreation(ConnectionDB.getRes().getString(3));
 			cpTmp.setEtat(ConnectionDB.getRes().getString(4));
 			cpTmp.setType(ConnectionDB.getRes().getString(5));
 		}
@@ -42,14 +41,15 @@ public class CompteUtilisateurDAO {
 	 */
 	public static ArrayList<CompteUtilisateur> getUsersAccounts() throws SQLException {
 		CompteUtilisateur accountTmp = new CompteUtilisateur();
-		String req = "SELECT * FROM compteUtilisateur";
+		String req = "SELECT * FROM compte_utilisateur";
+		ConnectionDB.DBConnexion();
 		ConnectionDB.setRes(ConnectionDB.getStm().executeQuery(req));
 
 		ArrayList<CompteUtilisateur> accounts = new ArrayList<CompteUtilisateur>();
 		while (ConnectionDB.getRes().next()) {
 			accountTmp.setLogin(ConnectionDB.getRes().getString(1));
 			accountTmp.setMdp(ConnectionDB.getRes().getString(2));
-			accountTmp.setCreation(ConnectionDB.getRes().getDate(3));
+			accountTmp.setCreation(ConnectionDB.getRes().getString(3));
 			accountTmp.setEtat(ConnectionDB.getRes().getString(4));
 			accountTmp.setType(ConnectionDB.getRes().getString(5));
 			accounts.add(accountTmp);
@@ -68,7 +68,7 @@ public class CompteUtilisateurDAO {
 		int result = -1;
 		ConnectionDB.DBConnexion();
 
-		String req = "DELETE FROM compteUtilisateur WHERE login = '"+login+"' ";
+		String req = "DELETE FROM compte_utilisateur WHERE login = '"+login+"' ";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
 			System.out.println("Compte supprimé");	
@@ -88,22 +88,24 @@ public class CompteUtilisateurDAO {
 	 * @param user
 	 * @param login
 	 * @return
+	 * @throws SQLException 
 	 */
-	public static int updateAdresseById(CompteUtilisateur user, String login) 
+	public static int updateCompteByLogin(CompteUtilisateur user, String login) throws SQLException 
 	{
 		int result = -1;
 		ConnectionDB.DBConnexion();
 
 		String log = user.getLogin();
 		String mdp = user.getMdp();
-		Date creation = user.getCreation();
+		String creation = user.getCreation();
 		String etat = user.getEtat();
 		String type = user.getType();
-		
 
-
-		String req = "UPDATE compteUtilisateur SET login = '"+login+"', mdp = '"+mdp+"', creation = '"+creation+"', "
-				+ "etat = '"+etat+"', type = '"+type+"'";
+		String req = "UPDATE compte_utilisateur SET login = '"+log+"', mdp = '"+mdp+"', dateCreation = '"+creation+"', "
+				+ "etat = '"+etat+"', type = '"+type+"' "
+						+ "WHERE login = '"+login+"'";
+		System.out.println(req);
+		result = ConnectionDB.getStm().executeUpdate(req);
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
 			System.out.println("Compte mis à jour");	
@@ -124,13 +126,13 @@ public class CompteUtilisateurDAO {
 	 * @param type
 	 * @return
 	 */
-	public static int addAccount(String login, String mdp, Date creation, String etat, String type) 
+	public static int addAccount(String login, String mdp, String creation, String etat, String type) 
 	{
 		int result = -1;
 		ConnectionDB.DBConnexion();
 
-		String req = "INSERT INTO compteUtilisateur (login, mdp, creation, etat, type) "
-				+ "VALUES ('"+login+"','"+mdp+"',"+creation+",'"+etat+"','"+type+"'";
+		String req = "INSERT INTO compte_utilisateur (login, mdp, dateCreation, etat, type) "
+				+ "VALUES ('"+login+"','"+mdp+"',"+creation+",'"+etat+"','"+type+"')";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
 			System.out.println("Compte créé");

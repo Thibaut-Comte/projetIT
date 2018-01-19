@@ -136,7 +136,7 @@ public class BienDAO {
 
 		String req = "UPDATE bien SET numero = '"+numero+"', type = '"+type+"',specificite = '"+specificites+"', "
 				+ "statut = '"+statut+"',taille = '"+taille+"', identifiant_adresse = '"+identifiantAdresse+"' "
-				+ "WHERE num ='"+num+"' ";
+				+ "WHERE numero ='"+num+"' ";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
 			System.out.println("Bien update");	

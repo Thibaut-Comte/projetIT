@@ -1,16 +1,14 @@
 package com.ecetech.bti3.projetIT.scpi.beans;
 
-import java.sql.Date;
-
 public class CompteUtilisateur {
 	
 	private String login;
 	private String mdp;
-	private Date creation;
+	private String creation;
 	private String etat;
 	private String type;
 	
-	public CompteUtilisateur(String login, String mdp, Date creation, String etat, String type) {
+	public CompteUtilisateur(String login, String mdp, String creation, String etat, String type) {
 		super();
 		this.login = login;
 		this.mdp = mdp;
@@ -39,11 +37,11 @@ public class CompteUtilisateur {
 		this.mdp = mdp;
 	}
 
-	public Date getCreation() {
+	public String getCreation() {
 		return creation;
 	}
 
-	public void setCreation(Date creation) {
+	public void setCreation(String creation) {
 		this.creation = creation;
 	}
 
@@ -62,5 +60,12 @@ public class CompteUtilisateur {
 	public void setType(String type) {
 		this.type = type;
 	}
+
+	@Override
+	public String toString() {
+		return "CompteUtilisateur [login=" + login + ", mdp=" + mdp + ", creation=" + creation + ", etat=" + etat
+				+ ", type=" + type + "]";
+	}
+	
 	
 }
