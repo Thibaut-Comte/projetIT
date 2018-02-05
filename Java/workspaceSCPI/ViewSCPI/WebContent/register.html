@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./style/common.css" media="screen,projection" type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/style/login.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title>Password Forgot</title>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><img src="./images/SCPI.jpg" class="img-responsive center-block" width="150"></li>
+                    <li><a href="index.php">Acceuil</a></li>
+                    <li><a href="explication.php">A propos</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="login.php">Connexion</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- REGISTRATION FORM -->
+<div class="text-center" style="padding:50px 0">
+    <div class="logo">register</div>
+    <!-- Main Form -->
+    <div class="login-form-1">
+        <form id="register-form" class="text-left">
+            <div class="login-form-main-message"></div>
+            <div class="main-login-form">
+                <div class="login-group">
+                    <div class="form-group">
+                        <label for="reg_username" class="sr-only">Email address</label>
+                        <input type="text" class="form-control" id="reg_username" name="reg_username"
+                               placeholder="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_password" class="sr-only">Password</label>
+                        <input type="password" class="form-control" id="reg_password" name="reg_password"
+                               placeholder="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_password_confirm" class="sr-only">Password Confirm</label>
+                        <input type="password" class="form-control" id="reg_password_confirm"
+                               name="reg_password_confirm" placeholder="confirm password">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg_email" class="sr-only">Email</label>
+                        <input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_fullname" class="sr-only">Full Name</label>
+                        <input type="text" class="form-control" id="reg_fullname" name="reg_fullname"
+                               placeholder="full name">
+                    </div>
+
+                    <div class="form-group login-group-checkbox">
+                        <input type="radio" class="" name="reg_gender" id="male" placeholder="username">
+                        <label for="male">male</label>
+
+                        <input type="radio" class="" name="reg_gender" id="female" placeholder="username">
+                        <label for="female">female</label>
+                    </div>
+
+                    <div class="form-group login-group-checkbox">
+                        <input type="checkbox" class="" id="reg_agree" name="reg_agree">
+                        <label for="reg_agree">i agree with <a href="#">terms</a></label>
+                    </div>
+                </div>
+                <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+            </div>
+            <div class="etc-login-form">
+                <p>already have an account? <a href="login.php">login here</a></p>
+            </div>
+        </form>
+    </div>
+    <!--   end:Main Form -->
+</div>
+</div>
+</body>
+</html>
