@@ -30,9 +30,9 @@ public class BienDAOTest {
 	}
 	
 	@Test
-	public void testGetAllBiensClasser() throws SQLException {
+	public void  testGetAllBiensClasser() throws SQLException {
 		ArrayList<Bien> ar = bien.getAllBiensClasseParVente();
-		//ar.size()
+		System.out.println(ar.size());
 	}
 	
 	@Test

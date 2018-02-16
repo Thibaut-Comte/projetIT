@@ -240,7 +240,7 @@ public class BienDAO {
 		ConnectionDB.DBConnexion();
 
 		String req = "INSERT INTO bien (numero, type, specificite, statut, taille, identifiant_adresse) "
-				+ "VALUES ('"+numero+"','"+type+"',"+specificite+",'"+statut+"','"+taille+"','"+identifiantAdresse+"') ";
+				+ "VALUES ('"+numero+"','"+type+"','"+specificite+"','"+statut+"','"+taille+"','"+identifiantAdresse+"') ";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
 			System.out.println("Bien créé");
