@@ -77,15 +77,14 @@ public class AdresseDAO {
 
 		String req = "DELETE FROM adresse WHERE identifiant = '"+id+"' ";
 		try {
-			result = ConnectionDB.getStm().executeUpdate(req);
-			System.out.println("Adresse supprimée");	
+			result = ConnectionDB.getStm().executeUpdate(req);	
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();
 			System.out.println(ex.getMessage());
 
 		}
-		System.out.println("["+req+"] Suppression : Valeur de result == "+result);
+		//System.out.println("["+req+"] Suppression : Valeur de result == "+result);
 		ConnectionDB.DBClose();
 		return result;
 	}
@@ -109,12 +108,11 @@ public class AdresseDAO {
 		int etage = adr.getEtage();
 
 
-		String req = "UPDATE eleve SET rue = '"+rue+"', cp = '"+cp+"', ville = '"+ville+"', "
+		String req = "UPDATE adresse SET rue = '"+rue+"', cp = '"+cp+"', ville = '"+ville+"', "
 				+ "pays = '"+pays+"', ascenseur = '"+ascensseur+"', etage = '"+etage+"' "
-				+ "WHERE num ='"+id+"' ";
+				+ "WHERE identifiant ='"+id+"' ";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
-			System.out.println("Adresse mise à jour");	
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();
@@ -143,14 +141,11 @@ public class AdresseDAO {
 				+ "VALUES ('"+identifiant+"','"+rue+"',"+cp+",'"+ville+"','"+pays+"','"+ascenseur+"','"+etage+"') ";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
-			System.out.println("Adresse créée");
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();
 			System.out.println(ex.getMessage());
 		}//System.out.println("["+req+"] Valeur de result == "+result);
-
-		System.out.println(req);	
 		//DBAction.DBClose();
 		return result;
 	}

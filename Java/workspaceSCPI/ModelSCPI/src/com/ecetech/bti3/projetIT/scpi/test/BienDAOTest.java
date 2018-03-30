@@ -16,28 +16,51 @@ public class BienDAOTest {
 
 	@Test
 	public void testGetBienByNum() throws SQLException {
-		bien.getBienByNum("un");
+		Bien b = bien.getBienByNum("un");
+		if (b != null) {
+			System.out.println("TestGetBienByNum : "+ 1);
+		}
+		else System.out.println("TestGetBienByNum : invalide");
 	}
 	
 	@Test
 	public void testGetAllBiens() throws SQLException {
-		bien.getAllBiens();
+		ArrayList<Bien> ar = bien.getAllBiens();
+		if (ar.size() > 0) {
+			System.out.println("Get All Biens : "+ar.size());
+		} else {
+			System.out.println("GetAllBiens : invalide ");
+		}
 	}
 	
 	@Test
 	public void testGetAllBiensEnVente() throws SQLException {
-		bien.getAllBiensEnVente();
+		ArrayList<Bien> ar = bien.getAllBiensEnVente();
+		if (ar.size() > 0) {
+			System.out.println("Get All Biens en ventes : "+ar.size());
+		} else {
+			System.out.println("GetAllBiensEnVentes : invalide");
+		}
 	}
 	
 	@Test
-	public void  testGetAllBiensClasser() throws SQLException {
+	public void testGetAllBiensClasser() throws SQLException {
 		ArrayList<Bien> ar = bien.getAllBiensClasseParVente();
-		System.out.println(ar.size());
+		if (ar.size() > 0) {
+			System.out.println("Get All Biens classer : "+ar.size());
+		} else {
+			System.out.println("GetAllBiensClasser : invalide");
+		}
 	}
 	
 	@Test
 	public void testDeleteBienByNum() throws SQLException {
-		bien.deleteBienByNum("deux");
+		int i = bien.deleteBienByNum("six");
+		if (i == 1) {
+			System.out.println("Delete bien by num : "+i);
+		} else {
+			System.out.println("Delete bien by num : invalide");
+		}
 	}
 	
 	@Test
@@ -49,19 +72,34 @@ public class BienDAOTest {
 		b.setStatut(1);
 		b.setTaille(503.0f);
 		b.setIdentifiantAdresse("premier");
-		bien.updateBienByNum(b, "trois");
+		int i = bien.updateBienByNum(b, "trois");
+		if (i == 1) {
+			System.out.println("Update by num : "+i);
+		} else {
+			System.out.println("Update by num : invalide");
+		}
 	}
 	
 	@Test
 	public void testBienVendu() throws SQLException {
 		Bien b = new Bien();
-		bien.bienVendu(b, "quatre");
+		int i = bien.bienVendu(b, "quatre");
+		if (i > 0) {
+			System.out.println("Bien vendu : "+i);
+		} else {
+			System.out.println("Bien vendu : invalide");
+		}
 	}
 	
 	@Test
 	public void testBienAVendre() throws SQLException {
 		Bien b = new Bien();
-		bien.bienAVendre(b, "cinq");
+		int i = bien.bienAVendre(b, "cinq");
+		if (i > 0) {
+			System.out.println("Bien à vendre : "+i);
+		} else {
+			System.out.println("Bien à vendre : invalide"+i);
+		}
 	}
 	
 	@Test
@@ -72,7 +110,12 @@ public class BienDAOTest {
 		int statut = 0;
 		float taille = 52f;
 		String identifiantAdresse = "premier";
-		bien.addBien(numero, type, specificite, statut, taille, identifiantAdresse);
+		int i = bien.addBien(numero, type, specificite, statut, taille, identifiantAdresse);
+		if (i == 1) {
+			System.out.println("Bien ajouté : "+i);
+		} else {
+			System.out.println("Bien ajouté : invalide");
+		}
 	}
 
 }

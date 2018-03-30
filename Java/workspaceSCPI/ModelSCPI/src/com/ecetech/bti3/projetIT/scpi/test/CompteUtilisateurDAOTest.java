@@ -3,6 +3,7 @@ package com.ecetech.bti3.projetIT.scpi.test;
 import static org.junit.Assert.*;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.event.SwingPropertyChangeSupport;
@@ -19,29 +20,47 @@ public class CompteUtilisateurDAOTest {
 
 	@Test
 	public void testGetCompteByLogin() throws SQLException {
-		compte.getCompteByLogin("login");
+		CompteUtilisateur cpt = compte.getCompteByLogin("login");
+		if (cpt != null) {
+			System.out.println("Compte by login : "+ 1);
+		}
+		else System.out.println("Compte by login : invalide");
 	}
 	
 	@Test
 	public void testGetUsersAccounts() throws SQLException {
-		compte.getUsersAccounts();
+		ArrayList<CompteUtilisateur> ar = compte.getUsersAccounts();
+		if (ar.size() > 0) {
+			System.out.println("Get All Clients : "+ar.size());
+		} else {
+			System.out.println("Get All Clients : invalide ");
+		}
 	}
 	
 	@Test
 	public void testDeleteCompteByLogin() throws SQLException {
-		compte.deleteAccountByLogin("login");
+		int i = compte.deleteAccountByLogin("login4");
+		if (i == 1) {
+			System.out.println("Delete compte by num : "+i);
+		} else {
+			System.out.println("Delete compte by num : invalide");
+		}
 	}
 	
 	@Test
 	public void testUpDateCompteByLogin() throws SQLException {
 		CompteUtilisateur c = new CompteUtilisateur();
-		c.setLogin("log5");
+		c.setLogin("log1");
 		c.setMdp("hash");
 		c.setCreation(null);
 		c.setEtat("a");
 		c.setType("client");
-		System.out.println(c.toString());
-		compte.updateCompteByLogin(c, "login2");
+		int i = compte.updateCompteByLogin(c, "log1");
+		if (i == 1) {
+			System.out.println("Update compte by login : "+i);
+		} else {
+			System.out.println("Update compte by login : invalide"+i);
+		}
 	}
 	
 	@Test
@@ -51,7 +70,12 @@ public class CompteUtilisateurDAOTest {
 		String creation = "1996-16-03";
 		String etat = "";
 		String type = "";
-		CompteUtilisateurDAO.addAccount(login, mdp, creation, etat, type);
+		int i = CompteUtilisateurDAO.addAccount(login, mdp, creation, etat, type);
+		if (i == 1) {
+			System.out.println("Compte ajouté : "+i);
+		} else {
+			System.out.println("Compte ajouté : invalide");
+		}
 	}
 
 }

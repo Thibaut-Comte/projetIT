@@ -79,14 +79,13 @@ public class ClientDAO {
 		String req = "DELETE FROM client WHERE numero = '"+num+"' ";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
-			System.out.println("Requete executée");	
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();
 			System.out.println(ex.getMessage());
 
 		}
-		System.out.println("["+req+"] Suppression : Valeur de result == "+result);
+		//System.out.println("["+req+"] Suppression : Valeur de result == "+result);
 		ConnectionDB.DBClose();
 		return result;
 	}
@@ -117,8 +116,7 @@ public class ClientDAO {
 				+ "tel = '"+tel+"',email= '"+email+"', identifiant_adresse = '"+identifiantAdresse+"' "
 				+ "WHERE numero ='"+num+"' ";
 		try {
-			result = ConnectionDB.getStm().executeUpdate(req);
-			System.out.println("Requete executee");	
+			result = ConnectionDB.getStm().executeUpdate(req);	
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();
@@ -137,13 +135,13 @@ public class ClientDAO {
 	 * @param identifiantAdresse
 	 * @return
 	 */
-	public static int addClient(String numero, String nom, String prenom, String tel, String email, String identifiantAdresse) 
+	public static int addClient(String numero, String nom, String prenom, String tel, String email, String identifiantAdresse, String login) 
 	{
 		int result = -1;
 		ConnectionDB.DBConnexion();
 
-		String req = "INSERT INTO client (numero, nom, prenom, tel, email, identifiant_adresse) "
-				+ "VALUES ('"+numero+"','"+nom+"','"+prenom+"','"+tel+"','"+email+"','"+identifiantAdresse+"') ";
+		String req = "INSERT INTO client (numero, nom, prenom, tel, email, identifiant_adresse, login) "
+				+ "VALUES ('"+numero+"','"+nom+"','"+prenom+"','"+tel+"','"+email+"','"+identifiantAdresse+"','"+login+"') ";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
 		} catch (SQLException ex)
@@ -152,8 +150,7 @@ public class ClientDAO {
 			System.out.println(ex.getMessage());
 		}//System.out.println("["+req+"] Valeur de result == "+result);
 
-		System.out.println(req);	
-		//DBAction.DBClose();
+		ConnectionDB.DBClose();
 		return result;
 	}
 

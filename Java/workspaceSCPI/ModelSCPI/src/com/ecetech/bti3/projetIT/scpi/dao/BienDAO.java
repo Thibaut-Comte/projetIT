@@ -97,7 +97,7 @@ public class BienDAO {
 	 */
 	public static ArrayList<Bien> getAllBiensClasseParVente() throws SQLException {
 		Bien bienTmp = new Bien();
-		String req = "SELECT * FROM bien ORBER BY statut";
+		String req = "SELECT * FROM bien ORDER BY statut";
 		ConnectionDB.DBConnexion();
 		ConnectionDB.setRes(ConnectionDB.getStm().executeQuery(req));
 
@@ -125,17 +125,15 @@ public class BienDAO {
 		int result = -1;
 		ConnectionDB.DBConnexion();
 
-		String req = "DELETE * FROM bien WHERE numero = '"+num+"' ";
+		String req = "DELETE FROM bien WHERE numero = '"+num+"'";
 		try {
-			result = ConnectionDB.getStm().executeUpdate(req);
-			System.out.println("Bien supprimé");	
+			result = ConnectionDB.getStm().executeUpdate(req);	
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();
 			System.out.println(ex.getMessage());
 
 		}
-		System.out.println("["+req+"] Suppression : Valeur de result == "+result);
 		ConnectionDB.DBClose();
 		return result;
 	}
@@ -165,7 +163,6 @@ public class BienDAO {
 				+ "WHERE numero ='"+num+"' ";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
-			System.out.println("Bien update");	
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();
@@ -187,10 +184,9 @@ public class BienDAO {
 
 		int statut = 0;
 
-		String req = "UPDATE bien SET statut = '"+statut+"'";
+		String req = "UPDATE bien SET statut = '"+statut+"' WHERE numero = '"+num+"'";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
-			System.out.println("Statut changé");	
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();
@@ -212,10 +208,9 @@ public class BienDAO {
 
 		int statut = 1;
 
-		String req = "UPDATE bien SET statut = '"+statut+"'";
+		String req = "UPDATE bien SET statut = '"+statut+"' WHERE numero = '"+num+"'";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
-			System.out.println("Statut changé");	
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();
@@ -243,15 +238,12 @@ public class BienDAO {
 				+ "VALUES ('"+numero+"','"+type+"','"+specificite+"','"+statut+"','"+taille+"','"+identifiantAdresse+"') ";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
-			System.out.println("Bien créé");
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();
 			System.out.println(ex.getMessage());
 		}//System.out.println("["+req+"] Valeur de result == "+result);
-
-		System.out.println(req);	
-		//DBAction.DBClose();
+		ConnectionDB.DBClose();
 		return result;
 	}
 

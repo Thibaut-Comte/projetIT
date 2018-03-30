@@ -71,14 +71,13 @@ public class CompteUtilisateurDAO {
 		String req = "DELETE FROM compte_utilisateur WHERE login = '"+login+"' ";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
-			System.out.println("Compte supprimé");	
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();
 			System.out.println(ex.getMessage());
 
 		}
-		System.out.println("["+req+"] Suppression : Valeur de result == "+result);
+		//System.out.println("["+req+"] Suppression : Valeur de result == "+result);
 		ConnectionDB.DBClose();
 		return result;
 	}
@@ -104,11 +103,9 @@ public class CompteUtilisateurDAO {
 		String req = "UPDATE compte_utilisateur SET login = '"+log+"', mdp = '"+mdp+"', dateCreation = '"+creation+"', "
 				+ "etat = '"+etat+"', type = '"+type+"' "
 						+ "WHERE login = '"+login+"'";
-		System.out.println(req);
 		result = ConnectionDB.getStm().executeUpdate(req);
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
-			System.out.println("Compte mis à jour");	
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();
@@ -135,14 +132,11 @@ public class CompteUtilisateurDAO {
 				+ "VALUES ('"+login+"','"+mdp+"',"+creation+",'"+etat+"','"+type+"')";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
-			System.out.println("Compte créé");
 		} catch (SQLException ex)
 		{
 			result = - ex.getErrorCode();
 			System.out.println(ex.getMessage());
 		}//System.out.println("["+req+"] Valeur de result == "+result);
-
-		System.out.println(req);	
 		//DBAction.DBClose();
 		return result;
 	}
