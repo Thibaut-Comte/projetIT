@@ -39,7 +39,7 @@ public class ControleurPrincipal extends HttpServlet {
 	}
 	
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println("login en cours");
 	}
 
 }
