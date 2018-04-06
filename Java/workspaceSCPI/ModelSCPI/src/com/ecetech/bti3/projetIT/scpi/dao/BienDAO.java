@@ -24,12 +24,12 @@ public class BienDAO {
 
 		//Assignation des valeurs dans l'ordre
 		while (ConnectionDB.getRes().next()) {
-			bienTmp.setNumero(ConnectionDB.getRes().getString(1));
-			bienTmp.setType(ConnectionDB.getRes().getString(2));
-			bienTmp.setSpecificites(ConnectionDB.getRes().getString(3));
-			bienTmp.setStatut(ConnectionDB.getRes().getInt(4));
-			bienTmp.setTaille(ConnectionDB.getRes().getFloat(5));
-			bienTmp.setIdentifiantAdresse(ConnectionDB.getRes().getString(6));
+			bienTmp.setNumero(ConnectionDB.getRes().getString("numero"));
+			bienTmp.setType(ConnectionDB.getRes().getString("type"));
+			bienTmp.setSpecificites(ConnectionDB.getRes().getString("specificite"));
+			bienTmp.setStatut(ConnectionDB.getRes().getInt("statut"));
+			bienTmp.setTaille(ConnectionDB.getRes().getFloat("taille"));
+			bienTmp.setIdentifiantAdresse(ConnectionDB.getRes().getString("identifiant_adresse"));
 
 		}
 
@@ -51,12 +51,12 @@ public class BienDAO {
 
 		ArrayList<Bien> biens = new ArrayList<Bien>();
 		while (ConnectionDB.getRes().next()) {
-			bienTmp.setNumero(ConnectionDB.getRes().getString(1));
-			bienTmp.setType(ConnectionDB.getRes().getString(2));
-			bienTmp.setSpecificites(ConnectionDB.getRes().getString(3));
-			bienTmp.setStatut(ConnectionDB.getRes().getInt(4));
-			bienTmp.setTaille(ConnectionDB.getRes().getFloat(5));
-			bienTmp.setIdentifiantAdresse(ConnectionDB.getRes().getString(6));
+			bienTmp.setNumero(ConnectionDB.getRes().getString("numero"));
+			bienTmp.setType(ConnectionDB.getRes().getString("type"));
+			bienTmp.setSpecificites(ConnectionDB.getRes().getString("specificite"));
+			bienTmp.setStatut(ConnectionDB.getRes().getInt("statut"));
+			bienTmp.setTaille(ConnectionDB.getRes().getFloat("taille"));
+			bienTmp.setIdentifiantAdresse(ConnectionDB.getRes().getString("identifiant_adresse"));
 			biens.add(bienTmp);
 		}
 		//Fermeture de la connection
@@ -77,12 +77,12 @@ public class BienDAO {
 
 		ArrayList<Bien> biensVentes = new ArrayList<Bien>();
 		while (ConnectionDB.getRes().next()) {
-			bienTmp.setNumero(ConnectionDB.getRes().getString(1));
-			bienTmp.setType(ConnectionDB.getRes().getString(2));
-			bienTmp.setSpecificites(ConnectionDB.getRes().getString(3));
-			bienTmp.setStatut(ConnectionDB.getRes().getInt(4));
-			bienTmp.setTaille(ConnectionDB.getRes().getFloat(5));
-			bienTmp.setIdentifiantAdresse(ConnectionDB.getRes().getString(6));
+			bienTmp.setNumero(ConnectionDB.getRes().getString("numero"));
+			bienTmp.setType(ConnectionDB.getRes().getString("type"));
+			bienTmp.setSpecificites(ConnectionDB.getRes().getString("specificite"));
+			bienTmp.setStatut(ConnectionDB.getRes().getInt("statut"));
+			bienTmp.setTaille(ConnectionDB.getRes().getFloat("taille"));
+			bienTmp.setIdentifiantAdresse(ConnectionDB.getRes().getString("identifiant_adresse"));
 			biensVentes.add(bienTmp);
 		}
 		//Fermeture de la connection
@@ -103,12 +103,12 @@ public class BienDAO {
 
 		ArrayList<Bien> biensVentes = new ArrayList<Bien>();
 		while (ConnectionDB.getRes().next()) {
-			bienTmp.setNumero(ConnectionDB.getRes().getString(1));
-			bienTmp.setType(ConnectionDB.getRes().getString(2));
-			bienTmp.setSpecificites(ConnectionDB.getRes().getString(3));
-			bienTmp.setStatut(ConnectionDB.getRes().getInt(4));
-			bienTmp.setTaille(ConnectionDB.getRes().getFloat(5));
-			bienTmp.setIdentifiantAdresse(ConnectionDB.getRes().getString(6));
+			bienTmp.setNumero(ConnectionDB.getRes().getString("numero"));
+			bienTmp.setType(ConnectionDB.getRes().getString("type"));
+			bienTmp.setSpecificites(ConnectionDB.getRes().getString("specificite"));
+			bienTmp.setStatut(ConnectionDB.getRes().getInt("statut"));
+			bienTmp.setTaille(ConnectionDB.getRes().getFloat("taille"));
+			bienTmp.setIdentifiantAdresse(ConnectionDB.getRes().getString("identifiant_adresse"));
 			biensVentes.add(bienTmp);
 		}
 		//Fermeture de la connection

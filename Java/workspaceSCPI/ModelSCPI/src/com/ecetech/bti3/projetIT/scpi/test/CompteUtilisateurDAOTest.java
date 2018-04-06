@@ -20,7 +20,7 @@ public class CompteUtilisateurDAOTest {
 
 	@Test
 	public void testGetCompteByLogin() throws SQLException {
-		CompteUtilisateur cpt = compte.getCompteByLogin("login");
+		CompteUtilisateur cpt = compte.getCompteByLogin("login","mdp");
 		if (cpt != null) {
 			System.out.println("Compte by login : "+ 1);
 		}

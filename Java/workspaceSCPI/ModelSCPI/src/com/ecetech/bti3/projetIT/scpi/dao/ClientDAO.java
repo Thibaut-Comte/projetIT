@@ -24,13 +24,13 @@ public class ClientDAO {
 
 		//Assignation des valeurs dans l'ordre
 		while (ConnectionDB.getRes().next()) {
-			clientTmp.setNumero(ConnectionDB.getRes().getString(1));
-			clientTmp.setNom(ConnectionDB.getRes().getString(2));
-			clientTmp.setPrenom(ConnectionDB.getRes().getString(3));
-			clientTmp.setTel(ConnectionDB.getRes().getString(4));
-			clientTmp.setEmail(ConnectionDB.getRes().getString(5));
-			clientTmp.setIdentifiantAdresse(ConnectionDB.getRes().getString(6));
-			clientTmp.setLogin(ConnectionDB.getRes().getString(6));
+			clientTmp.setNumero(ConnectionDB.getRes().getString("numero"));
+			clientTmp.setNom(ConnectionDB.getRes().getString("nom"));
+			clientTmp.setPrenom(ConnectionDB.getRes().getString("prenom"));
+			clientTmp.setTel(ConnectionDB.getRes().getString("tel"));
+			clientTmp.setEmail(ConnectionDB.getRes().getString("email"));
+			clientTmp.setIdentifiantAdresse(ConnectionDB.getRes().getString("identifiant_adresse"));
+			clientTmp.setLogin(ConnectionDB.getRes().getString("login"));
 
 		}
 
@@ -52,13 +52,13 @@ public class ClientDAO {
 
 		ArrayList<Client> clients = new ArrayList<Client>();
 		while (ConnectionDB.getRes().next()) {
-			clientTmp.setNumero(ConnectionDB.getRes().getString(1));
-			clientTmp.setNom(ConnectionDB.getRes().getString(2));
-			clientTmp.setPrenom(ConnectionDB.getRes().getString(3));
-			clientTmp.setTel(ConnectionDB.getRes().getString(4));
-			clientTmp.setEmail(ConnectionDB.getRes().getString(5));
-			clientTmp.setIdentifiantAdresse(ConnectionDB.getRes().getString(6));
-			clientTmp.setLogin(ConnectionDB.getRes().getString(6));
+			clientTmp.setNumero(ConnectionDB.getRes().getString("numero"));
+			clientTmp.setNom(ConnectionDB.getRes().getString("nom"));
+			clientTmp.setPrenom(ConnectionDB.getRes().getString("prenom"));
+			clientTmp.setTel(ConnectionDB.getRes().getString("tel"));
+			clientTmp.setEmail(ConnectionDB.getRes().getString("email"));
+			clientTmp.setIdentifiantAdresse(ConnectionDB.getRes().getString("identifiant_adresse"));
+			clientTmp.setLogin(ConnectionDB.getRes().getString("login"));
 		}
 		// ajout du client a l'array
 		clients.add(clientTmp);

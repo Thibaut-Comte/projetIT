@@ -2,13 +2,12 @@
 
 <html lang="fr,en">
 <head>
-    <?php require 'includes/head.html'; ?>
-    <link rel="stylesheet" href="./style/border.css" media="screen,projection" type="text/css">
+    <%@include file="./includes/head.html" %>
     <title>SCPI : Bourse d'échange</title>
 </head>
 <body class="container-fluid">
 <header>
-    <?php require 'includes/header.html'; ?>
+    <%@include file="./includes/header.html" %>
 </header>
 <main>
     <div class="container">

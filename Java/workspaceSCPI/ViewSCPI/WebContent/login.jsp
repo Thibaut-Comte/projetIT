@@ -2,38 +2,17 @@
 
 <html lang="fr,en">
 <head>
-    <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    
-
-    <link rel="stylesheet" href="./style/common.css" media="screen,projection" type="text/css">
-    <link rel="stylesheet" href="./style/border.css" media="screen,projection" type="text/css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/style/login.css">
+	<%@include file="./includes/head.html" %>
+    <link rel="stylesheet" href="./style/login.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <title>SCPI : Bourse d'échange</title>
+    
 </head>
 <body class="container-fluid">
 <header>
-    <nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><img src="./images/SCPI.jpg" class="img-responsive center-block" width="150" ></li>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="a_propos.html">A propos</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="login.html">Connexion</a></li>
-            </ul>
-        </div>
-    </div>
-    </nav>
+    <%@include file="./includes/header.html" %>
 </header>
 <main>
     <!-- Where all the magic happens -->
@@ -42,7 +21,7 @@
         <div class="logo">Login</div>
         <!-- Main Form -->
         <div class="login-form-1">
-            <form id="login-form" class="text-left" action="controleur">
+            <form id="login-form" class="text-left" action="controleur?action=auth" method="POST">
                 <div class="login-form-main-message"></div>
                 <div class="main-login-form">
                     <div class="login-group">
@@ -62,8 +41,8 @@
                     <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
                 </div>
                 <div class="etc-login-form">
-                    <p>forgot your password? <a href="forgot.html">click here</a></p>
-                    <p>new user? <a href="register.html">create new account</a></p>
+                    <p>forgot your password? <a href="forgot.jsp">click here</a></p>
+                    <p>new user? <a href="register.jsp">create new account</a></p>
                 </div>
             </form>
         </div>

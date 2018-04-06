@@ -24,13 +24,13 @@ public class AdresseDAO {
 
 		//Assignation des valeurs dans l'ordre
 		while (ConnectionDB.getRes().next()) {
-			adrTmp.setIdentifiant(ConnectionDB.getRes().getString(1));
-			adrTmp.setRue(ConnectionDB.getRes().getString(2));
-			adrTmp.setCp(ConnectionDB.getRes().getString(3));
-			adrTmp.setVille(ConnectionDB.getRes().getString(4));
-			adrTmp.setPays(ConnectionDB.getRes().getString(5));
-			adrTmp.setAscensseur(ConnectionDB.getRes().getInt(6));
-			adrTmp.setEtage(ConnectionDB.getRes().getInt(7));
+			adrTmp.setIdentifiant(ConnectionDB.getRes().getString("identifiant"));
+			adrTmp.setRue(ConnectionDB.getRes().getString("rue"));
+			adrTmp.setCp(ConnectionDB.getRes().getString("cp"));
+			adrTmp.setVille(ConnectionDB.getRes().getString("ville"));
+			adrTmp.setPays(ConnectionDB.getRes().getString("pays"));
+			adrTmp.setAscensseur(ConnectionDB.getRes().getInt("etage"));
+			adrTmp.setEtage(ConnectionDB.getRes().getInt("ascenseur"));
 		}
 
 		//Fermeture de la connection
@@ -51,13 +51,13 @@ public class AdresseDAO {
 
 		ArrayList<Adresse> adresses = new ArrayList<Adresse>();
 		while (ConnectionDB.getRes().next()) {
-			adrTmp.setIdentifiant(ConnectionDB.getRes().getString(1));
-			adrTmp.setRue(ConnectionDB.getRes().getString(2));
-			adrTmp.setCp(ConnectionDB.getRes().getString(3));
-			adrTmp.setVille(ConnectionDB.getRes().getString(4));
-			adrTmp.setPays(ConnectionDB.getRes().getString(5));
-			adrTmp.setAscensseur(ConnectionDB.getRes().getInt(6));
-			adrTmp.setEtage(ConnectionDB.getRes().getInt(7));
+			adrTmp.setIdentifiant(ConnectionDB.getRes().getString("identifiant"));
+			adrTmp.setRue(ConnectionDB.getRes().getString("rue"));
+			adrTmp.setCp(ConnectionDB.getRes().getString("cp"));
+			adrTmp.setVille(ConnectionDB.getRes().getString("ville"));
+			adrTmp.setPays(ConnectionDB.getRes().getString("pays"));
+			adrTmp.setAscensseur(ConnectionDB.getRes().getInt("etage"));
+			adrTmp.setEtage(ConnectionDB.getRes().getInt("ascenseur"));
 			adresses.add(adrTmp);
 		}
 		//Fermeture de la connection

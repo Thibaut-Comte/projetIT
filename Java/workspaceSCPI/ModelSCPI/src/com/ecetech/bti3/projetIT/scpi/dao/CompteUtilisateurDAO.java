@@ -11,24 +11,25 @@ public class CompteUtilisateurDAO {
 	/**
 	 * Recherche d'un compte par le login
 	 * @param login
+	 * @param mdp
 	 * @return
 	 * @throws SQLException
 	 */
-	public static CompteUtilisateur getCompteByLogin (String login) throws SQLException {
+	public static CompteUtilisateur getCompteByLogin (String login, String mdp) throws SQLException {
 		CompteUtilisateur cpTmp= new CompteUtilisateur();
 		//Requete
-		String req = "SELECT * FROM compte_utilisateur WHERE login = '"+login+"';";
+		String req = "SELECT * FROM compte_utilisateur WHERE login = '"+login+"' and mdp = '"+mdp+"';";
 		ConnectionDB.DBConnexion();
 		//Récupération d'un resultat après execution
 		ConnectionDB.setRes(ConnectionDB.getStm().executeQuery(req));
 
 		//Assignation des valeurs dans l'ordre
 		while (ConnectionDB.getRes().next()) {
-			cpTmp.setLogin(ConnectionDB.getRes().getString(1));
-			cpTmp.setMdp(ConnectionDB.getRes().getString(2));
-			cpTmp.setCreation(ConnectionDB.getRes().getString(3));
-			cpTmp.setEtat(ConnectionDB.getRes().getString(4));
-			cpTmp.setType(ConnectionDB.getRes().getString(5));
+			cpTmp.setLogin(ConnectionDB.getRes().getString("login"));
+			cpTmp.setMdp(ConnectionDB.getRes().getString("mdp"));
+			cpTmp.setCreation(ConnectionDB.getRes().getString("dateCreation"));
+			cpTmp.setEtat(ConnectionDB.getRes().getString("etat"));
+			cpTmp.setType(ConnectionDB.getRes().getString("type"));
 		}
 
 		//Fermeture de la connection
@@ -47,11 +48,11 @@ public class CompteUtilisateurDAO {
 
 		ArrayList<CompteUtilisateur> accounts = new ArrayList<CompteUtilisateur>();
 		while (ConnectionDB.getRes().next()) {
-			accountTmp.setLogin(ConnectionDB.getRes().getString(1));
-			accountTmp.setMdp(ConnectionDB.getRes().getString(2));
-			accountTmp.setCreation(ConnectionDB.getRes().getString(3));
-			accountTmp.setEtat(ConnectionDB.getRes().getString(4));
-			accountTmp.setType(ConnectionDB.getRes().getString(5));
+			accountTmp.setLogin(ConnectionDB.getRes().getString("login"));
+			accountTmp.setMdp(ConnectionDB.getRes().getString("mdp"));
+			accountTmp.setCreation(ConnectionDB.getRes().getString("dateCreation"));
+			accountTmp.setEtat(ConnectionDB.getRes().getString("etat"));
+			accountTmp.setType(ConnectionDB.getRes().getString("type"));
 			accounts.add(accountTmp);
 		}
 		//Fermeture de la connection
