@@ -1,0 +1,40 @@
+body,head{
+    font-family: 'Vollkorn SC', serif;
+    color: #090908;
+}
+
+.img{
+    padding-bottom: 1%;
+}
+
+.top{
+    padding-top: 1%;
+}
+
+body{
+    /*background-image: url(".././images/tableau.jpg");*/
+    background-size: 100%;
+}
+
+.MainC{
+    /*background-image: url(".././images/fond.jpg");*/
+    background-size: 100%;
+}
+
+.left{
+    padding-left: 1%;
+}
+
+.center{
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #ed5b62;
+}

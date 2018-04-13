@@ -47,16 +47,19 @@ public class ControleurPrincipal extends HttpServlet {
 	}
 
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String forward = "Accueil.jsp";
-		String action = request.getParameter("action");
-		switch(action)
+		String forward = "index.jsp";
+		if(request.getParameter("action") != null)
 		{
-		case "auth" : // test de connection
-			forward = authentifier(request);
-			break;
-		default : 
-			action="index.jsp";
-			break;
+			String action = request.getParameter("action");
+			switch(action)
+			{
+			case "auth" : // test de connection
+				forward = authentifier(request);
+				break;
+			default : 
+				forward="index.jsp";
+				break;
+			}
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(forward);
         dispatcher.forward(request, response);
@@ -64,18 +67,20 @@ public class ControleurPrincipal extends HttpServlet {
 	
 	private String authentifier(HttpServletRequest request) {
         String forward;
-        String login = request.getParameter("login");
-		String pass = request.getParameter("pass");
+        String login = request.getParameter("lg_username");
+		String pass = request.getParameter("lg_password");
 		CompteUtilisateurDAO c = new CompteUtilisateurDAO();
 		CompteUtilisateur nUser = null;
 		try {
 			nUser = c.getCompteByLogin(login, pass);
+//			System.out.println(nUser.toString());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        if (nUser != null) {
-            forward = "Accueil.jsp";
+        if (!(nUser.getLogin().isEmpty())) {
+            forward = "index.jsp";
+            System.out.println("Bravo tu es connecté");
             HttpSession session = request.getSession();
 //            if (nUser.isAdmin()) {  // methode à définir
 //                session.setAttribute("role", "admin");
@@ -83,7 +88,9 @@ public class ControleurPrincipal extends HttpServlet {
 //                session.setAttribute("role", "user");
 //            }
         } else {
-            forward = "Error.jsp";
+//            forward = "Error.jsp";
+        	forward = "index.jsp";
+        	System.out.println("Couple login/password incorrect");
    //         request.setAttribute("erreur", ressource.getString("auth.erreur"));
         }
         return forward;

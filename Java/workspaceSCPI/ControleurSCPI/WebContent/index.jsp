@@ -3,7 +3,6 @@
 <html lang="fr,en">
 <head>
     <%@include file="./includes/head.html" %>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
     <title>SCPI : Bourse d'échange</title>
     
 
@@ -14,6 +13,19 @@
    <%@include file="./includes/header.html" %>
 </header>
 <main data-spy="scroll" data-target=".navbar-collapse">
+
+        <!-- Preloader -->
+        <div id="loading">
+            <div id="loading-center">
+                <div id="loading-center-absolute">
+                    <div class="object" id="object_one"></div>
+                    <div class="object" id="object_two"></div>
+                    <div class="object" id="object_three"></div>
+                    <div class="object" id="object_four"></div>
+                </div>
+            </div>
+        </div><!--End off Preloader -->
+
 
         <div class="culmn">
 
@@ -29,7 +41,7 @@
                             </div>
 
                             <div class="home_btns m-top-40">
-                                <a href="login.jsp" class="btn btn-primary m-top-20">JE ME CONNECTE</a>
+                                <a href="https://bootstrapthemes.co" target="_blank" class="btn btn-primary m-top-20">JE ME CONNECTE</a>
                                 
                             </div>
 
@@ -213,6 +225,10 @@
 
 
             <!-- paradise slider js -->
+
+
+            <script src="http://maps.google.com/maps/api/js?key=AIzaSyD_tAQD36pKp9v4at5AnpGbvBUsLCOSJx8"></script>
+            <script src="./js/gmaps.min.js"></script>
 
             <script src="./js/plugins.js"></script>
             <script src="./js/main.js"></script>
