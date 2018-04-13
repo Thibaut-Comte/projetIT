@@ -3,6 +3,7 @@ package com.ecetech.bti3.projetIT.scpi.control;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -35,7 +36,12 @@ public class ControleurPrincipal extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		processRequest(request, response);
+		try {
+			processRequest(request, response);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -43,10 +49,15 @@ public class ControleurPrincipal extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		processRequest(request, response);
+		try {
+			processRequest(request, response);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 		String forward = "index.jsp";
 		if(request.getParameter("action") != null)
 		{
@@ -55,6 +66,11 @@ public class ControleurPrincipal extends HttpServlet {
 			{
 			case "auth" : // test de connection
 				forward = authentifier(request);
+				break;
+			case "listBien" :
+				ArrayList<Bien> allBiens = BienDAO.getAllBiens();
+				request.setAttribute("biens", allBiens);
+				forward = "admin/pages/gerer_mes_biens.jsp";
 				break;
 			default : 
 				forward="index.jsp";
@@ -66,7 +82,7 @@ public class ControleurPrincipal extends HttpServlet {
 	}
 	
 	private String authentifier(HttpServletRequest request) {
-        String forward;
+        String forward = "login.jsp";
         String login = request.getParameter("lg_username");
 		String pass = request.getParameter("lg_password");
 		CompteUtilisateurDAO c = new CompteUtilisateurDAO();
@@ -78,21 +94,24 @@ public class ControleurPrincipal extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        if (!(nUser.getLogin().isEmpty())) {
-            forward = "index.jsp";
-            System.out.println("Bravo tu es connecté");
-            HttpSession session = request.getSession();
-//            if (nUser.isAdmin()) {  // methode à définir
-//                session.setAttribute("role", "admin");
-//            } else {
-//                session.setAttribute("role", "user");
-//            }
-        } else {
-//            forward = "Error.jsp";
-        	forward = "index.jsp";
-        	System.out.println("Couple login/password incorrect");
-   //         request.setAttribute("erreur", ressource.getString("auth.erreur"));
-        }
+//		if(nUser != null)
+//		{
+	        if (!(nUser.getLogin().isEmpty())) {
+	            forward = "controleur?action=listBien";
+	            System.out.println("Bravo tu es connecté");
+	            HttpSession session = request.getSession();
+	//            if (nUser.isAdmin()) {  // methode à définir
+	//                session.setAttribute("role", "admin");
+	//            } else {
+	//                session.setAttribute("role", "user");
+	//            }
+	        } else {
+	//            forward = "Error.jsp";
+	        	forward = "index.jsp";
+	        	System.out.println("Couple login/password incorrect");
+	   //         request.setAttribute("erreur", ressource.getString("auth.erreur"));
+	        }
+//		}
         return forward;
     }
 

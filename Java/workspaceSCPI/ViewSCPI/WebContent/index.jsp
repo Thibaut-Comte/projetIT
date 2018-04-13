@@ -25,7 +25,7 @@
                     <div class="row">
                         <div class="main_home">
                             <div class="home_text">
-                                <h1 class="text-white">NOUS SOMME A VOTRE ECOUTE <br /> GANGNEZ GRAND DANS LES SCPI </h1>
+                                <h1 class="text-white">NOUS SOMME A VOTRE ECOUTE <br /> GAGNEZ GRAND DANS LES SCPI </h1>
                             </div>
 
                             <div class="home_btns m-top-40">

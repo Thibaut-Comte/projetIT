@@ -5,20 +5,20 @@ public class CompteUtilisateur {
 	private String login;
 	private String mdp;
 	private String creation;
-	private String etat;
-	private String type;
+	private String actif;
+	private int admin;
 	
-	public CompteUtilisateur(String login, String mdp, String creation, String etat, String type) {
+	public CompteUtilisateur(String login, String mdp, String creation, String etat, int admin) {
 		super();
 		this.login = login;
 		this.mdp = mdp;
 		this.creation = creation;
-		this.etat = etat;
-		this.type = type;
+		this.actif = etat;
+		this.admin = admin;
 	}
 	
 	public CompteUtilisateur () {
-		this("", "", null, "", "");
+		this("", "", null, "", 0);
 	}
 
 	public String getLogin() {
@@ -45,26 +45,26 @@ public class CompteUtilisateur {
 		this.creation = creation;
 	}
 
-	public String getEtat() {
-		return etat;
+	public String getActif() {
+		return actif;
 	}
 
-	public void setEtat(String etat) {
-		this.etat = etat;
+	public void setActif(String actif) {
+		this.actif = actif;
 	}
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
+	public Boolean isAdmin() {
+		if(this.admin == 1)
+		{
+			return true;
+		}
+		return false;
 	}
 
 	@Override
 	public String toString() {
-		return "CompteUtilisateur [login=" + login + ", mdp=" + mdp + ", creation=" + creation + ", etat=" + etat
-				+ ", type=" + type + "]";
+		return "CompteUtilisateur [login=" + login + ", mdp=" + mdp + ", creation=" + creation + ", actif=" + actif
+				+ ", admin=" + admin + "]";
 	}
 	
 	

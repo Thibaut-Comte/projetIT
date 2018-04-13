@@ -25,11 +25,19 @@ public class CompteUtilisateurDAO {
 
 		//Assignation des valeurs dans l'ordre
 		while (ConnectionDB.getRes().next()) {
-			cpTmp.setLogin(ConnectionDB.getRes().getString("login"));
-			cpTmp.setMdp(ConnectionDB.getRes().getString("mdp"));
-			cpTmp.setCreation(ConnectionDB.getRes().getString("dateCreation"));
-			cpTmp.setEtat(ConnectionDB.getRes().getString("etat"));
-			cpTmp.setType(ConnectionDB.getRes().getString("type"));
+//			cpTmp.setLogin(ConnectionDB.getRes().getString("login"));
+//			cpTmp.setMdp(ConnectionDB.getRes().getString("mdp"));
+//			cpTmp.setCreation(ConnectionDB.getRes().getString("dateCreation"));
+//			cpTmp.setEtat(ConnectionDB.getRes().getString("etat"));
+//			cpTmp.setType(ConnectionDB.getRes().getString("type"));
+			cpTmp = new CompteUtilisateur(
+					ConnectionDB.getRes().getString("login"),
+					ConnectionDB.getRes().getString("mdp"),
+					ConnectionDB.getRes().getString("dateCreation"),
+					ConnectionDB.getRes().getString("actif"),
+					ConnectionDB.getRes().getInt("admin")
+					);
+			System.out.println(cpTmp.toString());
 		}
 
 		//Fermeture de la connection
@@ -48,12 +56,19 @@ public class CompteUtilisateurDAO {
 
 		ArrayList<CompteUtilisateur> accounts = new ArrayList<CompteUtilisateur>();
 		while (ConnectionDB.getRes().next()) {
-			accountTmp.setLogin(ConnectionDB.getRes().getString("login"));
-			accountTmp.setMdp(ConnectionDB.getRes().getString("mdp"));
-			accountTmp.setCreation(ConnectionDB.getRes().getString("dateCreation"));
-			accountTmp.setEtat(ConnectionDB.getRes().getString("etat"));
-			accountTmp.setType(ConnectionDB.getRes().getString("type"));
-			accounts.add(accountTmp);
+//			accountTmp.setLogin(ConnectionDB.getRes().getString("login"));
+//			accountTmp.setMdp(ConnectionDB.getRes().getString("mdp"));
+//			accountTmp.setCreation(ConnectionDB.getRes().getString("dateCreation"));
+//			accountTmp.setEtat(ConnectionDB.getRes().getString("actif"));
+//			accountTmp.setAdmin(ConnectionDB.getRes().getString("type"));
+//			accounts.add(accountTmp);
+			accounts.add(new CompteUtilisateur(
+					ConnectionDB.getRes().getString("login"),
+					ConnectionDB.getRes().getString("mdp"),
+					ConnectionDB.getRes().getString("dateCreation"),
+					ConnectionDB.getRes().getString("actif"),
+					ConnectionDB.getRes().getInt("admin")
+					));
 		}
 		//Fermeture de la connection
 		ConnectionDB.DBClose();
@@ -98,11 +113,16 @@ public class CompteUtilisateurDAO {
 		String log = user.getLogin();
 		String mdp = user.getMdp();
 		String creation = user.getCreation();
-		String etat = user.getEtat();
-		String type = user.getType();
+		String actif = user.getActif();
+		int admin = 0;
+		if(user.isAdmin())
+		{
+			admin = 1;
+		}
+		
 
 		String req = "UPDATE compte_utilisateur SET login = '"+log+"', mdp = '"+mdp+"', dateCreation = '"+creation+"', "
-				+ "etat = '"+etat+"', type = '"+type+"' "
+				+ "actif = '"+actif+"', admin = '"+admin+"' "
 						+ "WHERE login = '"+login+"'";
 		result = ConnectionDB.getStm().executeUpdate(req);
 		try {
@@ -120,17 +140,17 @@ public class CompteUtilisateurDAO {
 	 * @param login
 	 * @param mdp
 	 * @param creation
-	 * @param etat
-	 * @param type
+	 * @param actif
+	 * @param admin
 	 * @return
 	 */
-	public static int addAccount(String login, String mdp, String creation, String etat, String type) 
+	public static int addAccount(String login, String mdp, String creation, String actif, int admin) 
 	{
 		int result = -1;
 		ConnectionDB.DBConnexion();
 
-		String req = "INSERT INTO compte_utilisateur (login, mdp, dateCreation, etat, type) "
-				+ "VALUES ('"+login+"','"+mdp+"',"+creation+",'"+etat+"','"+type+"')";
+		String req = "INSERT INTO compte_utilisateur (login, mdp, dateCreation, actif, admin) "
+				+ "VALUES ('"+login+"','"+mdp+"',"+creation+",'"+actif+"','"+admin+"')";
 		try {
 			result = ConnectionDB.getStm().executeUpdate(req);
 		} catch (SQLException ex)

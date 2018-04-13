@@ -50,11 +50,16 @@ public class CompteUtilisateurDAOTest {
 	@Test
 	public void testUpDateCompteByLogin() throws SQLException {
 		CompteUtilisateur c = new CompteUtilisateur();
-		c.setLogin("log1");
-		c.setMdp("hash");
-		c.setCreation(null);
-		c.setEtat("a");
-		c.setType("client");
+//		c.setLogin("log1");
+//		c.setMdp("hash");
+//		c.setCreation(null);
+//		c.setEtat("a");
+		int _admin = 0;
+//		if(c.isAdmin())
+//		{
+//			_admin = 1;
+//		}
+		c = new CompteUtilisateur("log1","hash",null,"en attente",_admin);
 		int i = compte.updateCompteByLogin(c, "log1");
 		if (i == 1) {
 			System.out.println("Update compte by login : "+i);
@@ -68,9 +73,9 @@ public class CompteUtilisateurDAOTest {
 		String login = "login4";
 		String mdp = "mdp";
 		String creation = "1996-16-03";
-		String etat = "";
-		String type = "";
-		int i = CompteUtilisateurDAO.addAccount(login, mdp, creation, etat, type);
+		String actif = "en attente";
+		int admin = 0;
+		int i = CompteUtilisateurDAO.addAccount(login, mdp, creation, actif, admin);
 		if (i == 1) {
 			System.out.println("Compte ajouté : "+i);
 		} else {
