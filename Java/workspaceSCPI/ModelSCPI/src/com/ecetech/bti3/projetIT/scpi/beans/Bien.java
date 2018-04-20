@@ -9,6 +9,13 @@ public class Bien {
 	private float taille;
 	private String identifiantAdresse;
 	
+	@Override
+	public String toString() {
+		return "Bien [numero=" + numero + ", type=" + type + ", specificites="
+				+ specificites + ", statut=" + statut + ", taille=" + taille
+				+ ", identifiantAdresse=" + identifiantAdresse + "]";
+	}
+
 	public Bien(String numero, String type, String specificites, int statut, float taille,
 			String identifiantAdresse) {
 		super();

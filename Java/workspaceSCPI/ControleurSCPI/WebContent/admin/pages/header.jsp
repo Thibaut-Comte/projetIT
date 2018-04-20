@@ -7,7 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SCPI ADMIN</a>
+                <a class="navbar-brand" href="../../index.jsp">SCPI ADMIN</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -38,19 +38,19 @@
                     <ul class="nav" id="side-menu">
                         
                         <li>
-                            <a href="dashboard.jsp"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="././admin/pages/dashboard.jsp"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                          <li>
-                            <a href="biens_en_vente.jsp"><i class="fa fa-table fa-fw"></i> Biens en ventes</a>
+                            <a href="././admin/pages/biens_en_vente.jsp"><i class="fa fa-table fa-fw"></i> Biens en ventes</a>
                         </li>
                         <li>
-                            <a href="gerer_mes_biens.jsp"><i class="fa fa-table fa-fw"></i>Gérer mes biens</a>
+                            <a href="././admin/pages/gerer_mes_biens.jsp"><i class="fa fa-table fa-fw"></i>Gérer mes biens</a>
                         </li>
                
           
                         
                     </ul>
-                </div>'
+                </div>
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->

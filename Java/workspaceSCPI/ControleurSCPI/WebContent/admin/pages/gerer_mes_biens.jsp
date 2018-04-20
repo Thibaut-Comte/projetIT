@@ -17,19 +17,16 @@
     <title>SCPI ADMIN</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="./admin/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
+    <link href="./admin/dist/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="./admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -70,118 +67,40 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Numéro</th>
                   <th>Type</th>
                   <th>Spécifité</th>
                   <th>Statut</th>
                   <th>Superficie</th>                  
-                  <th>adresse</th>
                   <th>Opérations</th>
                 </tr>
               </thead>
-<!--               <tfoot> -->
-<!--                 <tr> -->
-<!--                   <th>Numéro</th> -->
-<!--                   <th>Type</th> -->
-<!--                   <th>Spécifité</th> -->
-<!--                   <th>Statut</th> -->
-<!--                   <th>Superficie</th>                   -->
-<!--                   <th>adresse</th> -->
-<!--                   <th>Opérations</th> -->
-<!--                 </tr> -->
-<!--               </tfoot> -->
  			
               <tbody>
               <% ArrayList<Bien> allB = (ArrayList<Bien>)request.getAttribute("biens"); 
- 				out.println(allB.size());
+ 				for(int i=0; i<allB.size(); i++)
+ 				{
+	 				System.out.println(allB.get(i).toString());
+ 					out.println("<tr>");
+	 				out.println("<td>"+allB.get(i).getType()+i+"</td>");
+	 				out.println("<td>"+allB.get(i).getSpecificites()+"</td>");
+	 				if(allB.get(i).getStatut() == 0){
+	 					out.println("<td>en vente</td>");
+	 				}
+	 				else if(allB.get(i).getStatut() == 1){
+	 					out.println("<td>vendu</td>");
+	 				}
+	 				out.println("<td>"+allB.get(i).getTaille()+"m<sup>2</sup></td>");
+// 	 				out.println("<td>"+allB.get(i).getType()+"</td>"); // adresse
+	 				out.println("<td><button type='button' class='btn btn-success'>Encherir</button> -<a class='btn btn-info' href='#' >Détails</a></td>");
+	 				out.println("</tr>");
+ 				}
+ 				
  			%>
-                <tr>
-                 <td>B0001</td>
-                  <td>Appartement</td>
-                  <td>Accès handicapé</td>
-                   <td>En vente</td>
-                  <td>37 m<sup>2</sup></td>
-                  <td>10 rue des grisignons, 75006</td>
-                  <td>
-                    <button type="button" class="btn btn-success">Encherir</button> -<a class="btn btn-info" href="#" >Détails</a>  
-                        
-                  </td>
-                
-                <tr>
-                  <td>B0001</td>
-                  <td>Appartement</td>
-                  <td>Accès handicapé</td>
-                   <td>En vente</td>
-                  <td>37 m<sup>2</sup></td>
-                  <td>10 rue des grisignons, 75006</td>
-                  <td>
-                    <button type="button" class="btn btn-success">Encherir</button> -<a class="btn btn-info" href="#" >Détails</a>  
-                        
-                  </td>
-                </tr>
-                <tr>
-                  <td>B0001</td>
-                  <td>Appartement</td>
-                  <td>Accès handicapé</td>
-                   <td>En vente</td>
-                  <td>37 m<sup>2</sup></td>
-                  <td>10 rue des grisignons, 75006</td>
-                 
-                  <td>
-                    <button type="button" class="btn btn-success">Encherir</button> -<a class="btn btn-info" href="#" >Détails</a>  
-                        
-                  </td>
-                </tr>
-                <tr>
-                  <td>B0001</td>
-                  <td>Appartement</td>
-                  <td>Accès handicapé</td>
-                   <td>En vente</td>
-                  <td>37 m<sup>2</sup></td>
-                  <td>10 rue des grisignons, 75006</td>
-                  <td>
-                    <button type="button" class="btn btn-success">Encherir</button> -<a class="btn btn-info" href="#" >Détails</a>  
-                        
-                  </td>
-                </tr>
-                <tr>
-                  <td>B0001</td>
-                  <td>Appartement</td>
-                  <td>Accès handicapé</td>
-                   <td>En vente</td>
-                  <td>37 m<sup>2</sup></td>
-                  <td>10 rue des grisignons, 75006</td>
-                  <td>
-                    <button type="button" class="btn btn-success">Encherir</button> -<a class="btn btn-info" href="#" >Détails</a>  
-                        
-                  </td>
-                </tr>
-                <tr>
-                  <td>B0001</td>
-                  <td>Appartement</td>
-                  <td>Accès handicapé</td>
-                   <td>En vente</td>
-                  <td>37 m<sup>2</sup></td>
-                  <td>10 rue des grisignons, 75006</td>
-                  <td>
-                    <button type="button" class="btn btn-success">Encherir</button> -<a class="btn btn-info" href="#" >Détails</a>  
-                        
-                  </td>
-                </tr>
-
-
               </tbody>
             </table>
           </div>
         </div>
-      </div>
-       
-            
-            
-      
-                
-                
-                
+      </div> 
             </div>
             <!-- /.row -->
             
@@ -193,21 +112,16 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="./admin/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./admin/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="../vendor/raphael/raphael.min.js"></script>
-    <script src="../vendor/morrisjs/morris.min.js"></script>
-    <script src="../data/morris-data.js"></script>
+    <script src="./admin/vendor/metisMenu/metisMenu.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="./admin/dist/js/sb-admin-2.js"></script>
 
 </body>
 
