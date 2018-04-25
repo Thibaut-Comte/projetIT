@@ -7,7 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.jsp">SCPI ADMIN</a>
+                <a class="navbar-brand" href="controleur?action=index">SCPI ADMIN</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -24,7 +24,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Déconnexion</a>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Déconnexion</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -38,13 +38,13 @@
                     <ul class="nav" id="side-menu">
                         
                         <li>
-                            <a href="././admin/pages/dashboard.jsp"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="controleur?action=dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                          <li>
-                            <a href="././admin/pages/biens_en_vente.jsp"><i class="fa fa-table fa-fw"></i> Biens en ventes</a>
+                            <a href="controleur?action=bienEnVente"><i class="fa fa-table fa-fw"></i> Biens en ventes</a>
                         </li>
                         <li>
-                            <a href="././admin/pages/gerer_mes_biens.jsp"><i class="fa fa-table fa-fw"></i>Gérer mes biens</a>
+                            <a href="controleur?action=listBien"><i class="fa fa-table fa-fw"></i>Gérer mes biens</a>
                         </li>
                
           

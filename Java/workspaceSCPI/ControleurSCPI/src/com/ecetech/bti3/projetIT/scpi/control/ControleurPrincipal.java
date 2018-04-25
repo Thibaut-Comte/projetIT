@@ -72,6 +72,15 @@ public class ControleurPrincipal extends HttpServlet {
 				request.setAttribute("biens", allBiens);
 				forward = "admin/pages/gerer_mes_biens.jsp";
 				break;
+			case "dashboard" :
+				forward = "admin/pages/dashboard.jsp";
+				break;
+			case "bienEnVente" :
+				forward = "admin/pages/biens_en_vente.jsp";
+				break;
+			case "index" :
+				forward = "index.jsp";
+				break;
 			default : 
 				forward="index.jsp";
 				break;

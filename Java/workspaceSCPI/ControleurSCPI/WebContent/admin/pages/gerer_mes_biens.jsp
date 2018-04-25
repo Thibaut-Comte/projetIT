@@ -56,9 +56,6 @@
             </div>
             <!-- /.row -->
             
-
-            
-            
                <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table"></i> Liste des Biens</div>
@@ -77,11 +74,12 @@
  			
               <tbody>
               <% ArrayList<Bien> allB = (ArrayList<Bien>)request.getAttribute("biens"); 
+              	System.out.println("jsp");
  				for(int i=0; i<allB.size(); i++)
  				{
 	 				System.out.println(allB.get(i).toString());
  					out.println("<tr>");
-	 				out.println("<td>"+allB.get(i).getType()+i+"</td>");
+	 				out.println("<td>"+allB.get(i).getType()+"</td>");
 	 				out.println("<td>"+allB.get(i).getSpecificites()+"</td>");
 	 				if(allB.get(i).getStatut() == 0){
 	 					out.println("<td>en vente</td>");
@@ -91,7 +89,7 @@
 	 				}
 	 				out.println("<td>"+allB.get(i).getTaille()+"m<sup>2</sup></td>");
 // 	 				out.println("<td>"+allB.get(i).getType()+"</td>"); // adresse
-	 				out.println("<td><button type='button' class='btn btn-success'>Encherir</button> -<a class='btn btn-info' href='#' >Détails</a></td>");
+	 				out.println("<td><button type='button' class='btn btn-success'>Mettre en vente</button> -<a class='btn btn-info' href='#' >Détails</a></td>");
 	 				out.println("</tr>");
  				}
  				

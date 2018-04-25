@@ -44,13 +44,14 @@ public class BienDAO {
 	 * @throws SQLException
 	 */
 	public static ArrayList<Bien> getAllBiens() throws SQLException {
-		Bien bienTmp = new Bien();
+		
 		String req = "SELECT * FROM bien";
 		ConnectionDB.DBConnexion();
 		ConnectionDB.setRes(ConnectionDB.getStm().executeQuery(req));
-
-		ArrayList<Bien> biens = new ArrayList<Bien>();
-		while (ConnectionDB.getRes().next()) {
+		ArrayList<Bien> biens = new ArrayList<Bien>(ConnectionDB.getRes().getFetchSize());
+//		int i = 0;
+		while (ConnectionDB.getRes().next()) {	
+			Bien bienTmp = new Bien();
 			bienTmp.setNumero(ConnectionDB.getRes().getString("numero"));
 			bienTmp.setType(ConnectionDB.getRes().getString("type"));
 			bienTmp.setSpecificites(ConnectionDB.getRes().getString("specificite"));
@@ -58,7 +59,15 @@ public class BienDAO {
 			bienTmp.setTaille(ConnectionDB.getRes().getFloat("taille"));
 			bienTmp.setIdentifiantAdresse(ConnectionDB.getRes().getString("identifiant_adresse"));
 			biens.add(bienTmp);
+//			System.out.println("BienTemp"+i);
+//			i++;
+//			System.out.println(bienTmp.toString());
 		}
+//		System.out.println("DAO");
+//		for(int j=0; j<biens.size(); j++)
+//		{
+//			System.out.println(biens.get(j).toString());
+//		}
 		//Fermeture de la connection
 		ConnectionDB.DBClose();
 		return biens;
